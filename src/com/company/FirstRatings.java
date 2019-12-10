@@ -31,8 +31,8 @@ public class FirstRatings {
         return movies;
     }
 
-    public ArrayList<Rater> loadRaters(String fileName){
-        ArrayList<Rater> raters = new ArrayList<Rater>();
+    public ArrayList<EfficientRater> loadRaters(String fileName){
+        ArrayList<EfficientRater> raters = new ArrayList<EfficientRater>();
         FileResource fr = new FileResource("data/" + fileName);
 
         for(CSVRecord record : fr.getCSVParser()){
@@ -49,7 +49,7 @@ public class FirstRatings {
             }
 
             if(!isAdded){
-                Rater newRater = new Rater(raterID);
+                EfficientRater newRater = new EfficientRater(raterID);
                 newRater.addRating(movieID, rating);
                 raters.add(newRater);
             }
@@ -116,7 +116,7 @@ public class FirstRatings {
     }
 
     public void testLoadRaters(){
-        ArrayList<Rater> raters = loadRaters("ratings.csv");
+        ArrayList<EfficientRater> raters = loadRaters("ratings.csv");
 
         String raterID = "193";
         int raterCount = 0;

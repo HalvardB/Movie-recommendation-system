@@ -5,7 +5,7 @@ import java.util.function.DoubleBinaryOperator;
 
 public class SecondRatings {
     private ArrayList<Movie> myMovies;
-    private ArrayList<Rater> myRaters;
+    private ArrayList<EfficientRater> myRaters;
     private HashMap<String, ArrayList<Double>> movieRatings;
     private ArrayList<Rating> averageRatingsAbove;
 
@@ -63,7 +63,7 @@ public class SecondRatings {
             String movieID = movie.getID();
             ArrayList<Double> ratingList = movieRatings.get(movieID);
 
-            if(movieID.equals(id) && ratingList.size() > minimalRaters){
+            if(movieID.equals(id) && ratingList.size() >= minimalRaters){
                 Double total = 0.0;
                 int ratingCount = 0;
 
